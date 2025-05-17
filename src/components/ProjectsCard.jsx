@@ -1,16 +1,17 @@
-import { useState } from "react";
+// import { useState } from "react";
+import { Badge } from "./ui/badge"
 import { FaGithubSquare } from "react-icons/fa";
 import { TbWorldWww } from "react-icons/tb";
 
-function ProjectsCard({ url, img, github, title, text }) {
-  const [showFullText, setShowFullText] = useState(false);
-  const wordCount = text.split(" ").length;
-  const shouldTruncate = wordCount > 30;
+function ProjectsCard({ url, img, github, title, text, tags }) {
+  // const [showFullText, setShowFullText] = useState(false);
+  // const wordCount = text.split(" ").length;
+  // const shouldTruncate = wordCount > 30;
 
-  const displayedText =
-    shouldTruncate && !showFullText
-      ? text.split(" ").slice(0, 30).join(" ") + "..."
-      : text;
+  // const displayedText =
+  //   shouldTruncate && !showFullText
+  //     ? text.split(" ").slice(0, 30).join(" ") + "..."
+  //     : text;
 
   return (
     <article className="bg-white rounded-lg shadow-md hover:shadow-xl duration-300">
@@ -21,13 +22,17 @@ function ProjectsCard({ url, img, github, title, text }) {
       />
       <div className="p-8">
         <h2 className="text-xl tracking-wide font-medium">{title}</h2>
+        <div className="flex flex-wrap gap-2 mt-2">{tags.map((tag,i) => (
+          <Badge key={i} variant="secondary" className="text-xs bg-emerald-100">{tag}</Badge>
+        ))}</div>
         <p className="mt-4 text-slate-700 leading-loose">
-          {displayedText}
-          {shouldTruncate && (
+          {text}
+          {/* {displayedText} */}
+          {/* {shouldTruncate && (
             <button onClick={() => setShowFullText(!showFullText)} className="text-emerald-600 ml-1 font-medium">
               {showFullText ? 'See Less' : 'See More'}
             </button>
-          )}
+          )} */}
         </p>
         <div className="mt-4 flex gap-x-4">
           <a href={url}>
