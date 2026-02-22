@@ -8,7 +8,7 @@ function Hero() {
         <article>
           <h1 className="text-7xl font-bold tracking-wider">I&apos;m Martin</h1>
           <p className="mt-4 text-3xl text-slate-700 capitalize tracking-wide">
-            Front-end developer
+            Full-Stack developer
           </p>
           <p className="mt-2 text-lg text-slate-700 capitalize tracking-wide">
             turning ideas into interactive reality
